@@ -1,0 +1,40 @@
+inp
+        sta remainder
+        inp
+        sta num_2
+        sub remainder
+        brp reverse
+start   lda remainder
+looptop sub num_2
+        sta remainder
+        lda result
+        add one
+        sta result
+        lda remainder
+        brp looptop
+        brz end
+end     lda remainder
+        add num_2
+        brz yes
+        lda false
+        out
+        hlt
+yes     lda true
+        out
+        hlt
+reverse lda remainder
+        sta result
+        lda num_2
+        sta remainder
+        lda result
+        sta num_2
+        lda zero
+        sta result
+        bra start
+remainder dat
+num_2   dat
+result  dat 0
+one     dat 1
+zero    dat 0
+true    dat 1
+false   dat 0
