@@ -1,0 +1,19 @@
+inp
+sta num_1
+inp
+sta num_2
+looptop lda product
+add num_1
+sta product
+lda num_2
+sub one
+sta num 2
+brz end
+brp looptop
+end lda product
+out
+hlt
+num_1 dat
+num_2 dat
+product dat 0
+one dat 1
