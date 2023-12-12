@@ -1,0 +1,34 @@
+import random
+import math
+import time
+
+x=0
+y=0
+
+def InsertionSort(thelist):
+    global outputList   
+    outputList = [] 
+    for index in range (0,len(thelist)):
+        temp = thelist.pop()
+        if len(outputList) == 0:
+            outputList.append(temp)
+        else:
+            for index2 in range (0,len(outputList)):
+                if outputList[index2] > temp:
+                    outputList.insert(index2,temp)
+                    break
+                elif index2 == len(outputList)-1: # if temp is larger than all elements in outputList
+                    outputList.append(temp)
+                    break
+
+list1 = []
+
+for index in range(0,10000):
+    list1.append(random.randint(0,999999))
+
+print(list1)
+x = time.time()
+InsertionSort(list1)
+y = time.time()
+print(outputList)
+print(y-x)
